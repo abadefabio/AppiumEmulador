@@ -1,14 +1,11 @@
 package br.ce.appium.core;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
 import static br.ce.appium.core.DriverFactory.getDriver;
 
-public class DSL {
-	
+import org.openqa.selenium.By;
+
+public class BasePage {
+
 	public void escrever(By by, String texto) {
 		getDriver().findElement(by).sendKeys(texto);
 		////util.escrever(MobileBy.AccessibilityId("nome"), "Fabio"); exemplo de chamada para utilizar
@@ -36,5 +33,4 @@ public class DSL {
 	public boolean isCheckMarcado(By by) {
 		return getDriver().findElement(by).getAttribute("checked").equals("true");
 	}
-	
 }

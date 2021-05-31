@@ -1,13 +1,13 @@
 package br.ce.appium.page;
 
-import br.ce.appium.core.DSL;
+import br.ce.appium.core.BasePage;
 
-public class MenuPage {
+public class MenuPage extends BasePage{
 
-	private DSL util = new DSL();
+	
 	
 	public void acessarFormulario() {
 		//selecionar menu formulario
-		util.clicarPorTexto("Formulário");
+		clicarPorTexto("Formulário");
 	}
 }

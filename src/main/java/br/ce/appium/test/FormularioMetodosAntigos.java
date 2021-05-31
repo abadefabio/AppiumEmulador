@@ -18,12 +18,12 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import br.ce.appium.core.DSL;
+import br.ce.appium.core.DSL_old;
 import br.ce.appium.core.DriverFactory;
 
 public class FormularioMetodosAntigos {
 	private AndroidDriver<MobileElement> driver;
-		private DSL util = new DSL();
+		private DSL_old util = new DSL_old();
 		
 		@Before
 		public void inicializarAppium() throws MalformedURLException{

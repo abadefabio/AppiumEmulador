@@ -1,66 +1,64 @@
 package br.ce.appium.page;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import br.ce.appium.core.DSL;
+import br.ce.appium.core.BasePage;
 import io.appium.java_client.MobileBy;
 
-public class FormularioPage {
+public class FormularioPage extends BasePage{
 
-	private DSL util = new DSL();
 
 	public void escreverNome(String nome) {
 		//escrever nome
-		util.escrever(MobileBy.AccessibilityId("nome"), nome);
+		escrever(MobileBy.AccessibilityId("nome"), nome);
 	}
 	
 	public String obterNome() {
-		return util.obterTexto(MobileBy.AccessibilityId("nome"));
+		return obterTexto(MobileBy.AccessibilityId("nome"));
 	}
 	
 	public void selecionarCombo(String valor) {
-		util.selecionarCombo(MobileBy.AccessibilityId("console"), valor);	
+		selecionarCombo(MobileBy.AccessibilityId("console"), valor);	
 	}
 	
 	public String obterValorCombo() {
-		return util.obterTexto(By.xpath("//android.widget.Spinner/android.widget.TextView"));
+		return obterTexto(By.xpath("//android.widget.Spinner/android.widget.TextView"));
 	}
 
 	public void clicarCheckBox() {
-		util.clicar(By.className("android.widget.CheckBox"));
+		clicar(By.className("android.widget.CheckBox"));
 	}
 
 	public void clicarSwitch() {
-		util.clicar(MobileBy.AccessibilityId("switch"));	
+		clicar(MobileBy.AccessibilityId("switch"));	
 	}
 	
 	public boolean isCheckBoxMarcado() {
-		return util.isCheckMarcado(By.className("android.widget.CheckBox"));
+		return isCheckMarcado(By.className("android.widget.CheckBox"));
 	}
 	
 	public boolean isSwitchMarcado() {
-		return util.isCheckMarcado(MobileBy.AccessibilityId("switch"));
+		return isCheckMarcado(MobileBy.AccessibilityId("switch"));
 	}
 	
 	public void btnSalvar() {
-		util.clicarPorTexto("SALVAR");
+		clicarPorTexto("SALVAR");
 	}
 
 	public String obterNomeCadastrado() {
-		return util.obterTexto(By.xpath("//android.widget.TextView[starts-with(@text,'Nome:')]"));
+		return obterTexto(By.xpath("//android.widget.TextView[starts-with(@text,'Nome:')]"));
 	}
 	
 	public String obterConsoleCadastrado() {
-		return util.obterTexto(By.xpath("//android.widget.TextView[starts-with(@text, 'Console:')]"));
+		return obterTexto(By.xpath("//android.widget.TextView[starts-with(@text, 'Console:')]"));
 	}
 	
 	public String obterCheckBoxCadastrado() {
-		return util.obterTexto(By.xpath("//*[@text='Checkbox: Marcado']"));
+		return obterTexto(By.xpath("//*[@text='Checkbox: Marcado']"));
 	}
 	
 	public String obterSwitchCadastrado() {
-		return util.obterTexto(By.xpath("//*[@text='Switch: Off']"));
+		return obterTexto(By.xpath("//*[@text='Switch: Off']"));
 	}
 	
 	

@@ -3,40 +3,24 @@ package br.ce.appium.test;
 import static org.junit.Assert.assertEquals;
 
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import br.ce.appium.core.DSL;
-import br.ce.appium.core.DriverFactory;
+import br.ce.appium.core.BaseTest;
 import br.ce.appium.page.FormularioPage;
 import br.ce.appium.page.MenuPage;
 
-public class FormularioTeste {
+public class FormularioTeste extends BaseTest{
 
-	private DSL util = new DSL();
+	
 	private MenuPage menuPage = new MenuPage();
 	private FormularioPage formPage = new FormularioPage();
 	
 	@Before
 	public void inicializarAppium() throws MalformedURLException{
 		menuPage.acessarFormulario();
-	}
-
-	@After
-	public void tearDown() {
-		DriverFactory.killDriver(); //fechar sessão appium no final
 	}
 	
 	@Test
