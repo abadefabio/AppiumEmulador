@@ -33,4 +33,5 @@ public class BasePage {
 	public boolean isCheckMarcado(By by) {
 		return getDriver().findElement(by).getAttribute("checked").equals("true");
 	}
+	
 }
