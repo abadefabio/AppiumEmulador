@@ -3,14 +3,20 @@ package br.ce.appium.test;
 import static org.junit.Assert.assertEquals;
 
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.ce.appium.core.BaseTest;
+import br.ce.appium.core.DriverFactory;
 import br.ce.appium.page.FormularioPage;
 import br.ce.appium.page.MenuPage;
+import io.appium.java_client.functions.ExpectedCondition;
 
 public class FormularioTeste extends BaseTest{
 
@@ -90,6 +96,27 @@ public class FormularioTeste extends BaseTest{
 		Assert.assertTrue(formPage.obterSwitchCadastrado().endsWith("Off"));	  
 		Assert.assertEquals("Console: switch", formPage.obterConsoleCadastrado());
 		Assert.assertTrue(formPage.obterCheckBoxCadastrado().endsWith("Marcado"));
+
+		}
+	
+	@Test
+	public void devePreencherCadastroDemorado() throws MalformedURLException {
+
+		
+		// preencher nome
+		formPage.escreverNome("Fabio R ABade");
+		DriverFactory.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+			
+		//clicar em salvar
+		formPage.btnSalvarDemorado();
+	   // esperar(4000);
+		
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Nome: Fabio R ABade']")));
+	
+	   
+		//validar dados
+		Assert.assertEquals("Nome: Fabio R ABade", formPage.obterNomeCadastrado());
 
 		}
 
