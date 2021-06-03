@@ -101,7 +101,6 @@ public class FormularioTeste extends BaseTest{
 	
 	@Test
 	public void devePreencherCadastroDemorado() throws MalformedURLException {
-
 		
 		// preencher nome
 		formPage.escreverNome("Fabio R ABade");
@@ -113,11 +112,18 @@ public class FormularioTeste extends BaseTest{
 		
 		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Nome: Fabio R ABade']")));
-	
-	   
+		   
 		//validar dados
 		Assert.assertEquals("Nome: Fabio R ABade", formPage.obterNomeCadastrado());
-
 		}
+	
+	@Test
+	public void deveAlterarData() {
+		formPage.clicarPorTexto("01/01/2000");
+		formPage.clicarPorTexto("20");
+		formPage.clicarPorTexto("OK");
+		Assert.assertTrue(formPage.existeElementoPorTexto("20/2/2000"));
+		
+	}
 
 	}
