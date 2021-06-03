@@ -13,7 +13,7 @@ public class AbasPage extends BasePage {
 	}
 	
 	public String obterTextoAba() {
-		//return obterTexto(By.xpath("//*[contains(text,'Este é o conteúdo da Aba 1']"));
+		//return obterTexto(By.xpath("//*[contains(@text(),'Este é o conteúdo da Aba 1']"));
 		return obterTexto(By.xpath("//*[@text='Este é o conteúdo da Aba 1']"));
 	}
 	

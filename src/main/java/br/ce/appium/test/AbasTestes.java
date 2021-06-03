@@ -17,6 +17,7 @@ public class AbasTestes extends BaseTest {
 		//acessar menu abas
 		aba.acessarMenuAbas();
 		//Verificar se esta na aba 1
+		esperar(2000);
 		Assert.assertEquals("Este é o conteúdo da Aba 1",aba.obterTextoAba());
 		Assert.assertTrue(aba.isAba1());
 		//acessar aba 2
