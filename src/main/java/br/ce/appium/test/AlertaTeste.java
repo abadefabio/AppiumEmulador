@@ -8,6 +8,7 @@ import br.ce.appium.page.MenuPage;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
+import org.junit.Before;
 
 
 public class AlertaTeste extends BaseTest {
@@ -15,10 +16,14 @@ public class AlertaTeste extends BaseTest {
 	private MenuPage menu = new MenuPage();
 	private AlertaPage alerta = new AlertaPage();
 	
-	@Test
-	public void deveConfirmarAlerta() {
+	@Before
+	public void acessarMenuAlertas() {
 		//acessar menu alerta
 		menu.acessarAlertas();
+	}
+	
+	@Test
+	public void deveConfirmarAlerta() {
 		//clicar em alerta confirma
 		alerta.clicarAlertaConfirm();
 		//verificar os textos
@@ -31,5 +36,16 @@ public class AlertaTeste extends BaseTest {
 		Assert.assertEquals("Confirmado", alerta.obterMensagemAlerta());
 		//sair
 		alerta.clicarBtnSair();
+	}
+	
+	@Test
+	public void deveClicarForaAlertaPosicional() {
+		//clicar alerta simples
+		alerta.clicarAlertaSimples();
+		//clicar fora da caixa posicional x100 y150
+		esperar(1000);
+		alerta.clicarForaCaixaPosicional();
+		//verificar que mensagem não esta presente
+		Assert.assertFalse(alerta.existeElementoPorTexto("Pode clicar no OK ou fora da caixa para sair"));
 	}
 }
