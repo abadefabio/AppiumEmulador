@@ -53,9 +53,9 @@ public class BasePage {
 	
 
 	public void tap(int x, int y) {
-		new TouchAction(getDriver()).tap(x,y).perform();
+		//new TouchAction(getDriver()).tap(x,y).perform();
 		
-		//(new TouchAction(getDriver())).tap(PointOption.point(x,y)).perform();
+		(new TouchAction(getDriver())).tap(PointOption.point(x,y)).perform();
 	}
 	
 	
