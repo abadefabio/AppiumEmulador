@@ -15,7 +15,7 @@ public class CliquesTeste extends BaseTest {
 	private CliquesPage clique = new CliquesPage();
 	
 	@Test
-	public void deveRealizarCliqueLongo() {
+	public void deveRealizarCliqueLongo() throws InterruptedException {
 		//acessar menu
 		menu.acessarCliques();
 		
